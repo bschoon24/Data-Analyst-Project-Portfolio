@@ -1,0 +1,12 @@
+SELECT *
+FROM payment
+LIMIT 5;
+
+SELECT
+	EXTRACT (YEAR FROM payment_ts) AS year, 
+	EXTRACT (MONTH FROM payment_ts) AS mon,
+	SUM(amount) as rev
+FROM
+	payment
+GROUP BY year, mon
+ORDER BY year, mon;
