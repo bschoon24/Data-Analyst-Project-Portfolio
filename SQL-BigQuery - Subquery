@@ -1,0 +1,30 @@
+## Subquery Trip Duration
+
+WITH
+  longest_used_bike AS (
+    SELECT
+      bikeid,
+      SUM(duration_minutes) AS trip_duration
+    FROM `bigquery-public-data.austin_bikeshare.bikeshare_trips` 
+    Group BY
+      bikeid
+    Order By
+      trip_duration DESC
+    Limit 1
+  )
+
+  ##find station at which longest used bike leaves most often
+
+  SELECT
+    trips.start_station_id,
+    Count (*) AS trip_ct
+  FROM
+    longest_used_bikes AS longest
+  Inner JOIN 
+      `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
+  ON longest.bikeid = trips.bikeid
+    GROUP BY
+      trips.start_station_id
+    ORDER BY
+      trip_ct DESC
+  LIMIT 1
