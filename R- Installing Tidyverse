@@ -1,0 +1,750 @@
+
+R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> install.packages("tidyverse")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.2’
+(as ‘lib’ is unspecified)
+also installing the dependencies ‘fastmap’, ‘colorspace’, ‘sys’, ‘bit’, ‘ps’, ‘sass’, ‘base64enc’, ‘digest’, ‘cachem’, ‘farver’, ‘labeling’, ‘munsell’, ‘RColorBrewer’, ‘viridisLite’, ‘rappdirs’, ‘rematch’, ‘askpass’, ‘bit64’, ‘prettyunits’, ‘processx’, ‘evaluate’, ‘highr’, ‘yaml’, ‘xfun’, ‘bslib’, ‘fontawesome’, ‘htmltools’, ‘jquerylib’, ‘tinytex’, ‘backports’, ‘ellipsis’, ‘generics’, ‘glue’, ‘lifecycle’, ‘memoise’, ‘blob’, ‘DBI’, ‘R6’, ‘tidyselect’, ‘vctrs’, ‘withr’, ‘data.table’, ‘gtable’, ‘isoband’, ‘scales’, ‘gargle’, ‘uuid’, ‘cellranger’, ‘curl’, ‘ids’, ‘rematch2’, ‘cpp11’, ‘pkgconfig’, ‘mime’, ‘openssl’, ‘timechange’, ‘fansi’, ‘utf8’, ‘systemfonts’, ‘textshaping’, ‘clipr’, ‘crayon’, ‘vroom’, ‘tzdb’, ‘progress’, ‘callr’, ‘fs’, ‘knitr’, ‘rmarkdown’, ‘selectr’, ‘stringi’, ‘broom’, ‘conflicted’, ‘cli’, ‘dbplyr’, ‘dplyr’, ‘dtplyr’, ‘forcats’, ‘ggplot2’, ‘googledrive’, ‘googlesheets4’, ‘haven’, ‘hms’, ‘httr’, ‘jsonlite’, ‘lubridate’, ‘magrittr’, ‘modelr’, ‘pillar’, ‘purrr’, ‘ragg’, ‘readr’, ‘readxl’, ‘reprex’, ‘rlang’, ‘rstudioapi’, ‘rvest’, ‘stringr’, ‘tibble’, ‘tidyr’, ‘xml2’
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/fastmap_1.1.1.tar.gz'
+Content type 'application/x-gzip' length 62096 bytes (60 KB)
+==================================================
+downloaded 60 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/colorspace_2.1-0.tar.gz'
+Content type 'application/x-gzip' length 2587962 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/sys_3.4.1.tar.gz'
+Content type 'application/x-gzip' length 54976 bytes (53 KB)
+==================================================
+downloaded 53 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/bit_4.0.5.tar.gz'
+Content type 'application/x-gzip' length 1122042 bytes (1.1 MB)
+==================================================
+downloaded 1.1 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/ps_1.7.3.tar.gz'
+Content type 'application/x-gzip' length 388904 bytes (379 KB)
+==================================================
+downloaded 379 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/sass_0.4.5.tar.gz'
+Content type 'application/x-gzip' length 2436160 bytes (2.3 MB)
+==================================================
+downloaded 2.3 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/base64enc_0.1-3.tar.gz'
+Content type 'application/x-gzip' length 39123 bytes (38 KB)
+==================================================
+downloaded 38 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/digest_0.6.31.tar.gz'
+Content type 'application/x-gzip' length 199564 bytes (194 KB)
+==================================================
+downloaded 194 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/cachem_1.0.7.tar.gz'
+Content type 'application/x-gzip' length 65812 bytes (64 KB)
+==================================================
+downloaded 64 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/farver_2.1.1.tar.gz'
+Content type 'application/x-gzip' length 2596839 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/labeling_0.4.2.tar.gz'
+Content type 'application/x-gzip' length 60127 bytes (58 KB)
+==================================================
+downloaded 58 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/munsell_0.5.0.tar.gz'
+Content type 'application/x-gzip' length 241289 bytes (235 KB)
+==================================================
+downloaded 235 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/RColorBrewer_1.1-3.tar.gz'
+Content type 'application/x-gzip' length 53057 bytes (51 KB)
+==================================================
+downloaded 51 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/viridisLite_0.4.1.tar.gz'
+Content type 'application/x-gzip' length 1296688 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rappdirs_0.3.3.tar.gz'
+Content type 'application/x-gzip' length 47588 bytes (46 KB)
+==================================================
+downloaded 46 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rematch_1.0.1.tar.gz'
+Content type 'application/x-gzip' length 11979 bytes (11 KB)
+==================================================
+downloaded 11 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/askpass_1.1.tar.gz'
+Content type 'application/x-gzip' length 23822 bytes (23 KB)
+==================================================
+downloaded 23 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/bit64_4.0.5.tar.gz'
+Content type 'application/x-gzip' length 574133 bytes (560 KB)
+==================================================
+downloaded 560 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/prettyunits_1.1.1.tar.gz'
+Content type 'application/x-gzip' length 34452 bytes (33 KB)
+==================================================
+downloaded 33 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/processx_3.8.0.tar.gz'
+Content type 'application/x-gzip' length 446006 bytes (435 KB)
+==================================================
+downloaded 435 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/evaluate_0.20.tar.gz'
+Content type 'application/x-gzip' length 78128 bytes (76 KB)
+==================================================
+downloaded 76 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/highr_0.10.tar.gz'
+Content type 'application/x-gzip' length 38763 bytes (37 KB)
+==================================================
+downloaded 37 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/yaml_2.3.7.tar.gz'
+Content type 'application/x-gzip' length 111202 bytes (108 KB)
+==================================================
+downloaded 108 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/xfun_0.38.tar.gz'
+Content type 'application/x-gzip' length 411078 bytes (401 KB)
+==================================================
+downloaded 401 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/bslib_0.4.2.tar.gz'
+Content type 'application/x-gzip' length 4801408 bytes (4.6 MB)
+==================================================
+downloaded 4.6 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/fontawesome_0.5.0.tar.gz'
+Content type 'application/x-gzip' length 1381685 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/htmltools_0.5.5.tar.gz'
+Content type 'application/x-gzip' length 343192 bytes (335 KB)
+==================================================
+downloaded 335 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/jquerylib_0.1.4.tar.gz'
+Content type 'application/x-gzip' length 526484 bytes (514 KB)
+==================================================
+downloaded 514 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tinytex_0.44.tar.gz'
+Content type 'application/x-gzip' length 132126 bytes (129 KB)
+==================================================
+downloaded 129 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/backports_1.4.1.tar.gz'
+Content type 'application/x-gzip' length 100040 bytes (97 KB)
+==================================================
+downloaded 97 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/ellipsis_0.3.2.tar.gz'
+Content type 'application/x-gzip' length 40284 bytes (39 KB)
+==================================================
+downloaded 39 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/generics_0.1.3.tar.gz'
+Content type 'application/x-gzip' length 73627 bytes (71 KB)
+==================================================
+downloaded 71 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/glue_1.6.2.tar.gz'
+Content type 'application/x-gzip' length 157185 bytes (153 KB)
+==================================================
+downloaded 153 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/lifecycle_1.0.3.tar.gz'
+Content type 'application/x-gzip' length 122567 bytes (119 KB)
+==================================================
+downloaded 119 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/memoise_2.0.1.tar.gz'
+Content type 'application/x-gzip' length 46796 bytes (45 KB)
+==================================================
+downloaded 45 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/blob_1.2.4.tar.gz'
+Content type 'application/x-gzip' length 45751 bytes (44 KB)
+==================================================
+downloaded 44 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/DBI_1.1.3.tar.gz'
+Content type 'application/x-gzip' length 750542 bytes (732 KB)
+==================================================
+downloaded 732 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/R6_2.5.1.tar.gz'
+Content type 'application/x-gzip' length 82477 bytes (80 KB)
+==================================================
+downloaded 80 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tidyselect_1.2.0.tar.gz'
+Content type 'application/x-gzip' length 219681 bytes (214 KB)
+==================================================
+downloaded 214 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/vctrs_0.6.1.tar.gz'
+Content type 'application/x-gzip' length 1279047 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/withr_2.5.0.tar.gz'
+Content type 'application/x-gzip' length 225454 bytes (220 KB)
+==================================================
+downloaded 220 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/data.table_1.14.8.tar.gz'
+Content type 'application/x-gzip' length 2138314 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/gtable_0.3.3.tar.gz'
+Content type 'application/x-gzip' length 214886 bytes (209 KB)
+==================================================
+downloaded 209 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/isoband_0.2.7.tar.gz'
+Content type 'application/x-gzip' length 1641711 bytes (1.6 MB)
+==================================================
+downloaded 1.6 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/scales_1.2.1.tar.gz'
+Content type 'application/x-gzip' length 607625 bytes (593 KB)
+==================================================
+downloaded 593 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/gargle_1.3.0.tar.gz'
+Content type 'application/x-gzip' length 570132 bytes (556 KB)
+==================================================
+downloaded 556 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/uuid_1.1-0.tar.gz'
+Content type 'application/x-gzip' length 82040 bytes (80 KB)
+==================================================
+downloaded 80 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/cellranger_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 100695 bytes (98 KB)
+==================================================
+downloaded 98 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/curl_5.0.0.tar.gz'
+Content type 'application/x-gzip' length 726905 bytes (709 KB)
+==================================================
+downloaded 709 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/ids_1.0.1.tar.gz'
+Content type 'application/x-gzip' length 120169 bytes (117 KB)
+==================================================
+downloaded 117 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rematch2_2.1.2.tar.gz'
+Content type 'application/x-gzip' length 44269 bytes (43 KB)
+==================================================
+downloaded 43 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/cpp11_0.4.3.tar.gz'
+Content type 'application/x-gzip' length 298723 bytes (291 KB)
+==================================================
+downloaded 291 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/pkgconfig_2.0.3.tar.gz'
+Content type 'application/x-gzip' length 17376 bytes (16 KB)
+==================================================
+downloaded 16 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/mime_0.12.tar.gz'
+Content type 'application/x-gzip' length 37125 bytes (36 KB)
+==================================================
+downloaded 36 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/openssl_2.0.6.tar.gz'
+Content type 'application/x-gzip' length 1305192 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/timechange_0.2.0.tar.gz'
+Content type 'application/x-gzip' length 210279 bytes (205 KB)
+==================================================
+downloaded 205 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/fansi_1.0.4.tar.gz'
+Content type 'application/x-gzip' length 301054 bytes (293 KB)
+==================================================
+downloaded 293 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/utf8_1.2.3.tar.gz'
+Content type 'application/x-gzip' length 145424 bytes (142 KB)
+==================================================
+downloaded 142 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/systemfonts_1.0.4.tar.gz'
+Content type 'application/x-gzip' length 2288212 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/textshaping_0.3.6.tar.gz'
+Content type 'application/x-gzip' length 857761 bytes (837 KB)
+==================================================
+downloaded 837 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/clipr_0.8.0.tar.gz'
+Content type 'application/x-gzip' length 50340 bytes (49 KB)
+==================================================
+downloaded 49 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/crayon_1.5.2.tar.gz'
+Content type 'application/x-gzip' length 158110 bytes (154 KB)
+==================================================
+downloaded 154 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/vroom_1.6.1.tar.gz'
+Content type 'application/x-gzip' length 962907 bytes (940 KB)
+==================================================
+downloaded 940 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tzdb_0.3.0.tar.gz'
+Content type 'application/x-gzip' length 1610077 bytes (1.5 MB)
+==================================================
+downloaded 1.5 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/progress_1.2.2.tar.gz'
+Content type 'application/x-gzip' length 83458 bytes (81 KB)
+==================================================
+downloaded 81 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/callr_3.7.3.tar.gz'
+Content type 'application/x-gzip' length 424223 bytes (414 KB)
+==================================================
+downloaded 414 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/fs_1.6.1.tar.gz'
+Content type 'application/x-gzip' length 282515 bytes (275 KB)
+==================================================
+downloaded 275 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/knitr_1.42.tar.gz'
+Content type 'application/x-gzip' length 1437157 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rmarkdown_2.21.tar.gz'
+Content type 'application/x-gzip' length 2553557 bytes (2.4 MB)
+==================================================
+downloaded 2.4 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/selectr_0.4-2.tar.gz'
+Content type 'application/x-gzip' length 488525 bytes (477 KB)
+==================================================
+downloaded 477 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/stringi_1.7.12.tar.gz'
+Content type 'application/x-gzip' length 3191490 bytes (3.0 MB)
+==================================================
+downloaded 3.0 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/broom_1.0.4.tar.gz'
+Content type 'application/x-gzip' length 1849719 bytes (1.8 MB)
+==================================================
+downloaded 1.8 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/conflicted_1.2.0.tar.gz'
+Content type 'application/x-gzip' length 54737 bytes (53 KB)
+==================================================
+downloaded 53 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/cli_3.6.1.tar.gz'
+Content type 'application/x-gzip' length 1258696 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/dbplyr_2.3.2.tar.gz'
+Content type 'application/x-gzip' length 1113570 bytes (1.1 MB)
+==================================================
+downloaded 1.1 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/dplyr_1.1.1.tar.gz'
+Content type 'application/x-gzip' length 1452270 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/dtplyr_1.3.1.tar.gz'
+Content type 'application/x-gzip' length 353224 bytes (344 KB)
+==================================================
+downloaded 344 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/forcats_1.0.0.tar.gz'
+Content type 'application/x-gzip' length 421894 bytes (412 KB)
+==================================================
+downloaded 412 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/ggplot2_3.4.1.tar.gz'
+Content type 'application/x-gzip' length 4203322 bytes (4.0 MB)
+==================================================
+downloaded 4.0 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/googledrive_2.1.0.tar.gz'
+Content type 'application/x-gzip' length 1879468 bytes (1.8 MB)
+==================================================
+downloaded 1.8 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/googlesheets4_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 499114 bytes (487 KB)
+==================================================
+downloaded 487 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/haven_2.5.2.tar.gz'
+Content type 'application/x-gzip' length 387345 bytes (378 KB)
+==================================================
+downloaded 378 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/hms_1.1.3.tar.gz'
+Content type 'application/x-gzip' length 96549 bytes (94 KB)
+==================================================
+downloaded 94 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/httr_1.4.5.tar.gz'
+Content type 'application/x-gzip' length 495402 bytes (483 KB)
+==================================================
+downloaded 483 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/jsonlite_1.8.4.tar.gz'
+Content type 'application/x-gzip' length 1085249 bytes (1.0 MB)
+==================================================
+downloaded 1.0 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/lubridate_1.9.2.tar.gz'
+Content type 'application/x-gzip' length 966991 bytes (944 KB)
+==================================================
+downloaded 944 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/magrittr_2.0.3.tar.gz'
+Content type 'application/x-gzip' length 234989 bytes (229 KB)
+==================================================
+downloaded 229 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/modelr_0.1.11.tar.gz'
+Content type 'application/x-gzip' length 199618 bytes (194 KB)
+==================================================
+downloaded 194 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/pillar_1.9.0.tar.gz'
+Content type 'application/x-gzip' length 642658 bytes (627 KB)
+==================================================
+downloaded 627 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/purrr_1.0.1.tar.gz'
+Content type 'application/x-gzip' length 478384 bytes (467 KB)
+==================================================
+downloaded 467 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/ragg_1.2.5.tar.gz'
+Content type 'application/x-gzip' length 520015 bytes (507 KB)
+==================================================
+downloaded 507 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/readr_2.1.4.tar.gz'
+Content type 'application/x-gzip' length 884259 bytes (863 KB)
+==================================================
+downloaded 863 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/readxl_1.4.2.tar.gz'
+Content type 'application/x-gzip' length 890637 bytes (869 KB)
+==================================================
+downloaded 869 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/reprex_2.0.2.tar.gz'
+Content type 'application/x-gzip' length 495129 bytes (483 KB)
+==================================================
+downloaded 483 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rlang_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 1522704 bytes (1.5 MB)
+==================================================
+downloaded 1.5 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rstudioapi_0.14.tar.gz'
+Content type 'application/x-gzip' length 290679 bytes (283 KB)
+==================================================
+downloaded 283 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rvest_1.0.3.tar.gz'
+Content type 'application/x-gzip' length 208459 bytes (203 KB)
+==================================================
+downloaded 203 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/stringr_1.5.0.tar.gz'
+Content type 'application/x-gzip' length 301376 bytes (294 KB)
+==================================================
+downloaded 294 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tibble_3.2.1.tar.gz'
+Content type 'application/x-gzip' length 671881 bytes (656 KB)
+==================================================
+downloaded 656 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tidyr_1.3.0.tar.gz'
+Content type 'application/x-gzip' length 1198275 bytes (1.1 MB)
+==================================================
+downloaded 1.1 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/xml2_1.3.3.tar.gz'
+Content type 'application/x-gzip' length 614541 bytes (600 KB)
+==================================================
+downloaded 600 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tidyverse_2.0.0.tar.gz'
+Content type 'application/x-gzip' length 425330 bytes (415 KB)
+==================================================
+downloaded 415 KB
+
+* installing *binary* package ‘fastmap’ ...
+* DONE (fastmap)
+* installing *binary* package ‘colorspace’ ...
+* DONE (colorspace)
+* installing *binary* package ‘sys’ ...
+* DONE (sys)
+* installing *binary* package ‘bit’ ...
+* DONE (bit)
+* installing *binary* package ‘ps’ ...
+* DONE (ps)
+* installing *binary* package ‘base64enc’ ...
+* DONE (base64enc)
+* installing *binary* package ‘digest’ ...
+* DONE (digest)
+* installing *binary* package ‘farver’ ...
+* DONE (farver)
+* installing *binary* package ‘labeling’ ...
+* DONE (labeling)
+* installing *binary* package ‘RColorBrewer’ ...
+* DONE (RColorBrewer)
+* installing *binary* package ‘viridisLite’ ...
+* DONE (viridisLite)
+* installing *binary* package ‘rappdirs’ ...
+* DONE (rappdirs)
+* installing *binary* package ‘rematch’ ...
+* DONE (rematch)
+* installing *binary* package ‘prettyunits’ ...
+* DONE (prettyunits)
+* installing *binary* package ‘evaluate’ ...
+* DONE (evaluate)
+* installing *binary* package ‘yaml’ ...
+* DONE (yaml)
+* installing *binary* package ‘xfun’ ...
+* DONE (xfun)
+* installing *binary* package ‘backports’ ...
+* DONE (backports)
+* installing *binary* package ‘generics’ ...
+* DONE (generics)
+* installing *binary* package ‘glue’ ...
+* DONE (glue)
+* installing *binary* package ‘DBI’ ...
+* DONE (DBI)
+* installing *binary* package ‘R6’ ...
+* DONE (R6)
+* installing *binary* package ‘withr’ ...
+* DONE (withr)
+* installing *binary* package ‘data.table’ ...
+* DONE (data.table)
+* installing *binary* package ‘isoband’ ...
+* DONE (isoband)
+* installing *binary* package ‘uuid’ ...
+* DONE (uuid)
+* installing *binary* package ‘curl’ ...
+* DONE (curl)
+* installing *binary* package ‘cpp11’ ...
+* DONE (cpp11)
+* installing *binary* package ‘pkgconfig’ ...
+* DONE (pkgconfig)
+* installing *binary* package ‘mime’ ...
+* DONE (mime)
+* installing *binary* package ‘fansi’ ...
+* DONE (fansi)
+* installing *binary* package ‘utf8’ ...
+* DONE (utf8)
+* installing *binary* package ‘clipr’ ...
+* DONE (clipr)
+* installing *binary* package ‘crayon’ ...
+* DONE (crayon)
+* installing *binary* package ‘fs’ ...
+* DONE (fs)
+* installing *binary* package ‘stringi’ ...
+* DONE (stringi)
+* installing *binary* package ‘cli’ ...
+* DONE (cli)
+* installing *binary* package ‘jsonlite’ ...
+* DONE (jsonlite)
+* installing *binary* package ‘magrittr’ ...
+* DONE (magrittr)
+* installing *binary* package ‘rlang’ ...
+* DONE (rlang)
+* installing *binary* package ‘rstudioapi’ ...
+* DONE (rstudioapi)
+* installing *binary* package ‘xml2’ ...
+* DONE (xml2)
+* installing *binary* package ‘cachem’ ...
+* DONE (cachem)
+* installing *binary* package ‘munsell’ ...
+* DONE (munsell)
+* installing *binary* package ‘askpass’ ...
+* DONE (askpass)
+* installing *binary* package ‘bit64’ ...
+* DONE (bit64)
+* installing *binary* package ‘processx’ ...
+* DONE (processx)
+* installing *binary* package ‘highr’ ...
+* DONE (highr)
+* installing *binary* package ‘tinytex’ ...
+* DONE (tinytex)
+* installing *binary* package ‘ellipsis’ ...
+* DONE (ellipsis)
+* installing *binary* package ‘lifecycle’ ...
+* DONE (lifecycle)
+* installing *binary* package ‘timechange’ ...
+* DONE (timechange)
+* installing *binary* package ‘systemfonts’ ...
+* DONE (systemfonts)
+* installing *binary* package ‘tzdb’ ...
+* DONE (tzdb)
+* installing *binary* package ‘htmltools’ ...
+* DONE (htmltools)
+* installing *binary* package ‘memoise’ ...
+* DONE (memoise)
+* installing *binary* package ‘vctrs’ ...
+* DONE (vctrs)
+* installing *binary* package ‘gtable’ ...
+* DONE (gtable)
+* installing *binary* package ‘scales’ ...
+* DONE (scales)
+* installing *binary* package ‘openssl’ ...
+* DONE (openssl)
+* installing *binary* package ‘textshaping’ ...
+* DONE (textshaping)
+* installing *binary* package ‘callr’ ...
+* DONE (callr)
+* installing *binary* package ‘knitr’ ...
+* DONE (knitr)
+* installing *binary* package ‘lubridate’ ...
+* DONE (lubridate)
+* installing *binary* package ‘sass’ ...
+* DONE (sass)
+* installing *binary* package ‘fontawesome’ ...
+* DONE (fontawesome)
+* installing *binary* package ‘jquerylib’ ...
+* DONE (jquerylib)
+* installing *binary* package ‘blob’ ...
+* DONE (blob)
+* installing *binary* package ‘tidyselect’ ...
+* DONE (tidyselect)
+* installing *binary* package ‘ids’ ...
+* DONE (ids)
+* installing *binary* package ‘conflicted’ ...
+* DONE (conflicted)
+* installing *binary* package ‘hms’ ...
+* DONE (hms)
+* installing *binary* package ‘httr’ ...
+* DONE (httr)
+* installing *binary* package ‘pillar’ ...
+* DONE (pillar)
+* installing *binary* package ‘purrr’ ...
+* DONE (purrr)
+* installing *binary* package ‘ragg’ ...
+* DONE (ragg)
+* installing *binary* package ‘stringr’ ...
+* DONE (stringr)
+* installing *binary* package ‘bslib’ ...
+* DONE (bslib)
+* installing *binary* package ‘gargle’ ...
+* DONE (gargle)
+* installing *binary* package ‘progress’ ...
+* DONE (progress)
+* installing *binary* package ‘selectr’ ...
+* DONE (selectr)
+* installing *binary* package ‘tibble’ ...
+* DONE (tibble)
+* installing *binary* package ‘cellranger’ ...
+* DONE (cellranger)
+* installing *binary* package ‘rematch2’ ...
+* DONE (rematch2)
+* installing *binary* package ‘vroom’ ...
+* DONE (vroom)
+* installing *binary* package ‘rmarkdown’ ...
+* DONE (rmarkdown)
+* installing *binary* package ‘dplyr’ ...
+* DONE (dplyr)
+* installing *binary* package ‘forcats’ ...
+* DONE (forcats)
+* installing *binary* package ‘ggplot2’ ...
+* DONE (ggplot2)
+* installing *binary* package ‘googledrive’ ...
+* DONE (googledrive)
+* installing *binary* package ‘rvest’ ...
+* DONE (rvest)
+* installing *binary* package ‘dtplyr’ ...
+* DONE (dtplyr)
+* installing *binary* package ‘googlesheets4’ ...
+* DONE (googlesheets4)
+* installing *binary* package ‘readr’ ...
+* DONE (readr)
+* installing *binary* package ‘readxl’ ...
+* DONE (readxl)
+* installing *binary* package ‘reprex’ ...
+* DONE (reprex)
+* installing *binary* package ‘tidyr’ ...
+* DONE (tidyr)
+* installing *binary* package ‘broom’ ...
+* DONE (broom)
+* installing *binary* package ‘dbplyr’ ...
+* DONE (dbplyr)
+* installing *binary* package ‘haven’ ...
+* DONE (haven)
+* installing *binary* package ‘modelr’ ...
+* DONE (modelr)
+* installing *binary* package ‘tidyverse’ ...
+* DONE (tidyverse)
+
+The downloaded source packages are in
+	‘/tmp/RtmpriNUJu/downloaded_packages’
+> library(tidyverse)
+── Attaching core tidyverse packages ─────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.1     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ───────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package to force all conflicts to become errors
