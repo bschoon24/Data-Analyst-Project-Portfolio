@@ -1,0 +1,22 @@
+SELECT
+date, 
+region,
+small_bags,
+large_bags, 
+XLarge_Bags,
+Total_Bags,
+Small_Bags+Large_Bags+XLarge_Bags AS total_bag_calc
+FROM `practice-381420.avocado_data.avocado_prices` 
+
+
+## Figure out the % of small bags
+
+SELECT 
+date,
+region,
+total_bags,
+Small_Bags,
+(small_bags/total_bags)*100 AS small_bags_percent
+ FROM `practice-381420.avocado_data.avocado_prices` 
+ WHERE
+ Total_Bags <> 0
