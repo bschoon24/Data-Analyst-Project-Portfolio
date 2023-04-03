@@ -1,0 +1,18 @@
+CREATE TABLE produce (id INTEGER PRIMARY KEY, product TEXT, quantity TEXT, price INTEGER, total_price INTEGER);
+INSERT INTO produce VALUES (1, "apple", 5, 1, 5);
+INSERT INTO produce VALUES (2, "banana", 7, 1, 7);
+INSERT INTO produce VALUES (3, "GRAPE", 3, 2, 6);
+INSERT INTO produce VALUES (4, "pear", 6, 1, 6);
+INSERT INTO produce VALUES (5, "mango", 9, 3, 27);
+INSERT INTO produce VALUES (6, "carrot", 5, 2, 10);
+INSERT INTO produce VALUES (7, "zuchinni", 2, 2, 4);
+INSERT INTO produce VALUES (8, "lettuce", 1, 2, 2);
+INSERT INTO produce VALUES (9, "beans", 3, 2, 6);
+INSERT INTO produce VALUES (10, "potato", 8, 1, 8);
+INSERT INTO produce VALUES (11, "tomato", 7, 2, 14);
+INSERT INTO produce VALUES (12, "watermelon", 2, 3, 6);
+INSERT INTO produce VALUES (13, "peach", 8, 3, 24);
+INSERT INTO produce VALUES (14, "beets", 3, 2, 6);
+INSERT INTO produce VALUES (15, "onion", 4, 1, 4);
+SELECT * FROM produce ORDER BY price;
+SELECT SUM(total_price) FROM produce
