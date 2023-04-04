@@ -1,0 +1,21 @@
+--select all the authors who have written more than 1 million words, using group by and having-- 
+
+
+SELECT 
+    author, sum(words) AS total_words
+FROM 
+    books
+Group By 
+    author
+Having total_words >1000000;
+
+--select all the authors that write more than an average of 150,000 words per book. coloums should be author and avg_words.--
+
+SELECT 
+    author, avg(words) AS avg_words
+FROM 
+    books
+Group By 
+    author
+Having 
+    avg(words) > 150000;
